@@ -63,13 +63,25 @@ function urlBrandDirect(url) {
 function titleTag() {
     let title_tag = document.querySelector("title");
 
-
     console.log(title_tag);
     console.log(typeof(title_tag));
 
-    // format our title tag
-    title_tag.toLowerCase();
-    let words = title_tag.split(" ");
+    title_tag.toLowerCase();    // format our title tag
+    let words = title_tag.split(" ");  // all words in title tag
+
+    // currently - single-word case
+
+
+    const b = brands.entries;
+
+    for (let i = 0; i < words.length; i++) {  // for each title word
+        for (let j = 0; j < b.length; j++) {  // for each brand name
+            const name = b[j].name;
+            if (words[i] == name.toLowerCase()) {
+                return j;
+            }
+        }
+    }
 
     // pass brandName to background.js if valid
 }
