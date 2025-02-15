@@ -327,16 +327,28 @@ function urlBrandDirect(url) {
 }
 
 function titleTag() {
-    const title_tag = document.querySelector("title");
+    let title_tag = document.querySelector("title");
 
     if (!title_tag) {
         return -1;
     }
-    
-    const title = title_tag.title;
 
-    for (const brand of brands.entries) {
-        
+    title_tag = title_tag.innerHTML;
+    title_tag = title_tag.toLowerCase();    // format our title tag
+    let words = title_tag.split(" ");  // all words in title tag
+
+    // currently - single-word case
+
+
+    const b = brands.entries;
+
+    for (let i = 0; i < words.length; i++) {  // for each word in title
+        for (const brand of brands.entries) {  // for each brand
+            const name = b[i].name;
+            if (words[i] == name.toLowerCase()) {
+                return i;
+            }
+        }
     }
 
 }
