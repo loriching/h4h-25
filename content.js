@@ -313,12 +313,14 @@ function getScore(brandName) {
 function urlBrandDirect(url) {
     const urlByPeriod = url.split(".");
     const urlName = urlByPeriod[1];  // TODO IMPROVE THIS METHOD
+    console.log("BrandDirect - urlName = " + urlName);
 
     const b = brands.entries;
     
     for (let i = 0; i < b.length; i++) {
         const name = b[i].name;
         if (urlName == name.toLowerCase()) {
+            console.log("URL match found, returning " + i);
             return i;
         }
     }
@@ -335,6 +337,7 @@ function titleTag() {
 
     title_tag = title_tag.innerHTML;
     title_tag = title_tag.toLowerCase();    // format our title tag
+    console.log("titleTag = " + title_tag);
     let words = title_tag.split(" ");  // all words in title tag
 
     // currently - single-word case
@@ -346,6 +349,7 @@ function titleTag() {
         for (const brand of brands.entries) {  // for each brand
             const name = b[i].name;
             if (words[i] == name.toLowerCase()) {
+                console.log("titleTag match found, returning " + i);
                 return i;
             }
         }
