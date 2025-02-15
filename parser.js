@@ -270,6 +270,5 @@ const parse = () => {
     return entries;
 };
 
-console.log(parse());
-
+export default parse;
 
