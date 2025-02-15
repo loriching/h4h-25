@@ -1,22 +1,23 @@
 let scoreElement = document.getElementById('myScore')
 scoreElement.innerHTML = "12345";
 
-const xValues = [scoreElement, "Not applicable"];
-const yValues = [0.23, 0.77];
-const barColors = [
-    "red",
-    "gray"
-]
-
-newChart("myChart", {
-    type: "doughnutChart",
-    date: {
-    labels: xValues,
+const data = {
+    labels: [
+        scoreElement,
+        "Not applicable"
+    ],
     datasets: [{
-        backgroundColor: barColors, data: yValues
+        label: 'New donut chart',
+        data: [23, 77], 
+        backgroundColor: [
+            "red",
+            "gray"
+        ],
+        hoverOffset: 4
     }]
-    },
-    options: {
-    title: true, text: "Brand Sustainability Score"
-    }
-});
+};
+
+const config = {
+    type: 'doughtnut',
+    data: data,
+};
