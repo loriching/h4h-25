@@ -13,7 +13,7 @@ newChart("myChart", {
     date: {
     labels: xValues,
     datasets: [{
-        backgroundColor: donutColors, data: yva
+        backgroundColor: barColors, data: yValues
     }]
     },
     options: {
