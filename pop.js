@@ -21,3 +21,4 @@ const config = {
     type: 'doughtnut',
     data: data,
 };
+
