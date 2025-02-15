@@ -251,7 +251,7 @@ Zara,124.5
 Zeeman,134.5`;
 
 
-class BrandScore {
+class Brand {
     constructor(name, score) {
         this.name = name;
         this.score = score;
@@ -263,21 +263,21 @@ const parse = () => {
     let entries = [];
     const lines = data.split("\n");
     for (const line of lines) {
-        const [brand, score] = line.split(",");
-        const brand_score = new BrandScore(brand, score);
-        entries.push(brand_score);
+        const [name, score] = line.split(",");
+        const brand = new Brand(name, score);
+        entries.push(brand);
     }
 
     return entries;
 };
 
-export default class BrandScores {
+export default class Brands {
     constructor() {
         this.entries = parse();
     }
 
-    suggest(current_brand_score) {
-        const current_score = current_brand_score.score;
+    suggest(current_brand) {
+        const current_score = current_brand.score;
 
         return this.entries
             .filter((brand) => (brand.score > current_score));
