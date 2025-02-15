@@ -18,6 +18,7 @@ let words = title_tag.split(" ");
 // array of brand names
 // const brandNames = ...
 
+/*
 let url = window.location.href;
 
 console.log("url:" + url);
@@ -67,4 +68,4 @@ Approach 2 (url bad, use title tag):American Eagle,
 /*
 e.g Bananana Republic has www.
 */
-console.log("Running")
+// console.log("Running")
