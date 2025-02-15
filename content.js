@@ -291,7 +291,7 @@ const brands = new Brands();
 let url = window.location.href;  // get url
 
 // Call functions
-let result = urlBrandDirect(url, brandNamesLower);
+let result = urlBrandDirect(url);
 if (result != -1) {
     let score = getScore(getName(result));
 } else if (titleTag() != -1) {
