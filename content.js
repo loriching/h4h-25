@@ -21,8 +21,17 @@ function urlBrandDirect(url) {
 
 }
 
-function urlTitleTag(url) {
+function urlTitleTag() {
+    let title_tag = document.querySelector(title_tag);
 
+    console.log(title_tag);
+    console.log(typeof(title_tag));
+
+    // format our title tag
+    title_tag.toLowerCase();
+    let words = title_tag.split(" ");
+
+    // pass brandName to background.js if valid
 }
 
 function urlBrandSubset(url) {
@@ -72,18 +81,4 @@ if(brandNames.includes(brandName)) {
 }
 */
 
-// Method 2 - title tag - TODO LATER as fallback
-/*
-let title_tag = document.querySelector(title_tag);
-
-console.log(title_tag);
-console.log(typeof(title_tag));
-
-// format our title tag
-
-title_tag.toLowerCase();
-let words = title_tag.split(" ");
-*/
-
-// pass brandName to background.js if valid
 
