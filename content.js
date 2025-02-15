@@ -24,8 +24,7 @@ import { Brands } from "./parser"
 // array of brand names from parser.js
 const brands = new Brands();
 
-
-
+const names = brands.entries.map((brand) => brand.name.toLowerCase());
 
 
 let brandNamesLower = brandNames;
