@@ -1,0 +1,10 @@
+{
+    "name": "Insert Project Name",
+    "description": "Insert Project Description",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "Index.html",
+        "default_icon": "thumbnail.png"
+    }
+}
