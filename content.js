@@ -19,7 +19,6 @@ e.g Bananana Republic has www.
 let url = window.location.href;
 
 function urlBrandDirect(url) {
-    
 
     console.log("url:" + url);
     
@@ -31,13 +30,12 @@ function urlBrandDirect(url) {
     for (let i = 0; i < brandNames.length; i++) {
         brandNamesLower[i].toLowerCase();
         if(urlName == brandNamesLower[i]){
-            return ;
+            return brandNames[i];// this is the non lowercased brand
         }
     }
-    
     console.log("brandName:"+ urlName);
-    if(urlName != )
-    return urlName;
+
+    return " ";
 }
 
 function urlTitleTag(url) {
