@@ -41,16 +41,22 @@ let url = window.location.href;  // get url
 let validBrand = false;
 
 // Call functions
+// try approach 1
 let result = urlBrandDirect(url, brandNamesLower)
 
 if (result != -1) {
     return brandNames[result];
-} else if {
+} else if (TitleTag() != -1) {
+    result = TitleTag();
 
 }
 
 
 // FUNCTIONS - used to figure out brand name for various cases
+
+function getScore(brandName) {
+    return 
+}
 
 function urlBrandDirect(url, brandNamesLower) {
 
@@ -68,7 +74,7 @@ function urlBrandDirect(url, brandNamesLower) {
     return -1;
 }
 
-function urlTitleTag() {
+function TitleTag() {
     let title_tag = document.querySelector(title_tag);
 
     console.log(title_tag);
