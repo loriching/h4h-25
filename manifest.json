@@ -7,12 +7,12 @@
         "default_popup": "popup.html",
         "default_icon": "icon.png"
     },
-    "host_permissions": ["<all_urls>"],
     "content_scripts": [
         {
             "js": ["parser.js", "content.js", "pageScraper.js"],
             "matches": [
-                "<all_urls>"
+                "https://developer.chrome.com/docs/extensions/*",
+                "https://developer.chrome.com/docs/webstore/*"
             ]
         }
     ]
