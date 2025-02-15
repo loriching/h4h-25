@@ -17,44 +17,35 @@ e.g Bananana Republic has www.
 
 // "MAIN" SCRIPT - calls functions
 
-// RYAN ZONE
-
 import { Brands } from "./parser"
 
 // array of brand names from parser.js
 const brands = new Brands();
 
-const names = brands.entries.map((brand) => brand.name.toLowerCase());
-
-
-let brandNamesLower = brandNames;
-// RYAN ZONE END
-
-
-
-for (let i = 0; i < brandNames.length; i++) {
-    brandNamesLower[i].toLowerCase();
-}
+const namesOriginal = brands.entries.map((brand) => brand.name);
+const namesLower = brands.entries.map((brand) => brand.name.toLowerCase());
+const scores = brands.entries.map((brand) => brand.score);
 
 let url = window.location.href;  // get url
-let validBrand = false;
 
 // Call functions
-// try approach 1
-let result = urlBrandDirect(url, brandNamesLower)
-
+let result = urlBrandDirect(url, brandNamesLower);
 if (result != -1) {
-    return brandNames[result];
+    let score = getScore(getName(result));
 } else if (TitleTag() != -1) {
     result = TitleTag();
-
+    let score = getScore(getName(result));
 }
 
 
 // FUNCTIONS - used to figure out brand name for various cases
 
+function getName(index) {
+    return namesOriginal[index];
+}
+
 function getScore(brandName) {
-    return 
+    // RYAN PLEASE WRITE THIS FUNCTION
 }
 
 function urlBrandDirect(url, brandNamesLower) {
