@@ -258,6 +258,7 @@ class BrandScore {
     }
 };
 
+
 const parse = () => {
     let entries = [];
     const lines = data.split("\n");
@@ -270,5 +271,16 @@ const parse = () => {
     return entries;
 };
 
-export default parse;
+export default class BrandScores {
+    constructor() {
+        this.entries = parse();
+    }
+
+    suggest(current_brand_score) {
+        const current_score = current_brand_score.score;
+
+        return this.entries
+            .filter((brand) => (brand.score > current_score));
+    }
+};
 
