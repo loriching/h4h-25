@@ -1,6 +1,5 @@
 // Brand Name,2023 FINAL SCORE
-const data = `
-Abercrombie & Fitch,83.25
+const data = `Abercrombie & Fitch,83.25
 Adidas,140
 Aeropostale,7.5
 AJIO,20
@@ -249,8 +248,7 @@ Wrangler,82.25
 Youngor,0
 Zalando,99.75
 Zara,124.5
-Zeeman,134.5
-`;
+Zeeman,134.5`;
 
 
 class BrandScore {
@@ -261,11 +259,17 @@ class BrandScore {
 };
 
 const parse = () => {
+    let entries = [];
     const lines = data.split("\n");
     for (const line of lines) {
-        console.log(line);
+        const [brand, score] = line.split(",");
+        const brand_score = new BrandScore(brand, score);
+        entries.push(brand_score);
     }
+
+    return entries;
 };
 
-parse();
+console.log(parse());
+
 
