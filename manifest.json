@@ -1,10 +1,20 @@
 {
-    "name": "Insert Project Name",
-    "description": "Insert Project Description",
+    "name": "Clean Closet",
+    "description": "Extension that checks fashion sites against the Fashion Transparency Index database.",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "Index.html",
-        "default_icon": "thumbnail.png"
-    }
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["content.js", "parser.js"],
+            "matches": [
+                "https://developer.chrome.com/docs/extensions/*",
+                "https://developer.chrome.com/docs/webstore/*",
+                "<all_urls>"
+            ]
+        }
+    ]
 }
