@@ -1,5 +1,6 @@
 let scoreElement = document.getElementById('myScore')
 scoreElement.innerHTML = "12345";
+const ctx=getElementById('myDonut').getContext('2d');
 const data = {
     labels: [
       'Red',
@@ -17,3 +18,9 @@ const data = {
       hoverOffset: 4
     }]
   };
+  const config={
+    type: 'donut',
+    data:data
+  };
+
+  const myDonut= new Chart(ctx, config);
