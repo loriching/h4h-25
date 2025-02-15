@@ -16,9 +16,28 @@ e.g Bananana Republic has www.
 
 
 // Functions - used to figure out brand name for various cases
+let url = window.location.href;
 
 function urlBrandDirect(url) {
+    
 
+    console.log("url:" + url);
+    
+    let urlByPeriod = url.split(".");
+    
+    let urlName = url[1];
+    
+    let brandNamesLower = brandNames;
+    for (let i = 0; i < brandNames.length; i++) {
+        brandNamesLower[i].toLowerCase();
+        if(urlName == brandNamesLower[i]){
+            return ;
+        }
+    }
+    
+    console.log("brandName:"+ urlName);
+    if(urlName != )
+    return urlName;
 }
 
 function urlTitleTag() {
@@ -47,20 +66,7 @@ function urlBrandSpecial(url) {
 // array of brand names
 // const brandNames = ...
 
-let url = window.location.href;
 
-console.log("url:" + url);
-
-let urlByPeriod = url.split(".");
-
-let brandName = url[1];
-
-let brandNamesLower = brandNames;
-for (let i = 0; i < brandNames.length; i++) {
-    brandNamesLower[i].toLowerCase();
-}
-
-console.log("brandName:"+ brandName);
 
 //if we have an array of brandnames
 
