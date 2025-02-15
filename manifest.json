@@ -9,7 +9,7 @@
     },
     "content_scripts": [
         {
-            "js": ["content.js", "parser.js", "pageScraper.js"],
+            "js": ["content.js", "parser.js"],
             "matches": [
                 "https://developer.chrome.com/docs/extensions/*",
                 "https://developer.chrome.com/docs/webstore/*",
