@@ -1,6 +1,6 @@
 let scoreElement = document.getElementById('myScore')
 scoreElement.innerHTML = "12345";
-const ctx=getElementById('myDonut').getContext('2d');
+const ctx=document.getElementById('myDonut').getContext('2d');
 const data = {
     labels: [
       'Red',
@@ -19,7 +19,7 @@ const data = {
     }]
   };
   const config={
-    type: 'donut',
+    type: 'doughnut',
     data:data
   };
 
