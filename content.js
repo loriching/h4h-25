@@ -15,8 +15,39 @@ e.g Bananana Republic has www.
 */
 
 
-// Functions - used to figure out brand name for various cases
-let url = window.location.href;
+// "MAIN" SCRIPT - calls functions
+
+//import { parse } from "./parser"
+
+// array of brand names from parser.js
+//const brandNames = ...
+
+let url = window.location.href;  // get url
+
+let validBrand = false;
+
+// Call functions
+
+// urlBrandDirect(url);
+
+/*
+if(brandNames.includes(brandName)) {
+    validBrand = true;
+} else {
+    // case 1: url name is a subset of brand name e.g. abercrombie
+    for (let i = 0; i < brandNames.length; i++) {
+        let brandNameBySpace = brandNames[i].split(" ");
+        if (brandNameBySpace.includes(brandName)) {
+            brandName = brandNames[i];
+            validBrand = true;
+        }
+    }
+    // case 2: brand 
+}
+*/
+
+
+// FUNCTIONS - used to figure out brand name for various cases
 
 function urlBrandDirect(url) {
     
@@ -61,30 +92,6 @@ function urlBrandSpecial(url) {
 
 }
 
-// Method 1 - website URL - TODO NOW
 
-// array of brand names
-// const brandNames = ...
-
-
-
-//if we have an array of brandnames
-
-let validBrand = false;
-/*
-if(brandNames.includes(brandName)) {
-    validBrand = true;
-} else {
-    // case 1: url name is a subset of brand name e.g. abercrombie
-    for (let i = 0; i < brandNames.length; i++) {
-        let brandNameBySpace = brandNames[i].split(" ");
-        if (brandNameBySpace.includes(brandName)) {
-            brandName = brandNames[i];
-            validBrand = true;
-        }
-    }
-    // case 2: brand 
-}
-*/
 
 
