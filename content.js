@@ -17,56 +17,55 @@ e.g Bananana Republic has www.
 
 // "MAIN" SCRIPT - calls functions
 
-//import { parse } from "./parser"
+// RYAN ZONE
+
+import { Brands } from "./parser"
 
 // array of brand names from parser.js
-//const brandNames = ...
+const brands = new Brands();
+
+
+
+
+
+let brandNamesLower = brandNames;
+// RYAN ZONE END
+
+
+
+for (let i = 0; i < brandNames.length; i++) {
+    brandNamesLower[i].toLowerCase();
+}
 
 let url = window.location.href;  // get url
-
 let validBrand = false;
 
 // Call functions
+let result = urlBrandDirect(url, brandNamesLower)
 
-// urlBrandDirect(url);
+if (result != -1) {
+    return brandNames[result];
+} else if {
 
-/*
-if(brandNames.includes(brandName)) {
-    validBrand = true;
-} else {
-    // case 1: url name is a subset of brand name e.g. abercrombie
-    for (let i = 0; i < brandNames.length; i++) {
-        let brandNameBySpace = brandNames[i].split(" ");
-        if (brandNameBySpace.includes(brandName)) {
-            brandName = brandNames[i];
-            validBrand = true;
-        }
-    }
-    // case 2: brand 
 }
-*/
 
 
 // FUNCTIONS - used to figure out brand name for various cases
 
-function urlBrandDirect(url) {
+function urlBrandDirect(url, brandNamesLower) {
 
     console.log("url:" + url);
     
     let urlByPeriod = url.split(".");
     
-    let urlName = url[1];
+    let urlName = url[1];  // TODO IMPROVE THIS METHOD
+    console.log("brandName from url: "+ urlName);
     
-    let brandNamesLower = brandNames;
-    for (let i = 0; i < brandNames.length; i++) {
-        brandNamesLower[i].toLowerCase();
-        if(urlName == brandNamesLower[i]){
-            return brandNames[i];// this is the non lowercased brand
-        }
+    if(urlName == brandNamesLower[i]){
+        return i; // this is the non lowercased brand
     }
-    console.log("brandName:"+ urlName);
 
-    return " ";
+    return -1;
 }
 
 function urlTitleTag() {
@@ -83,7 +82,21 @@ function urlTitleTag() {
 }
 
 function urlBrandSubset(url) {
-
+    /*
+    if(brandNames.includes(brandName)) {
+        validBrand = true;
+    } else {
+        // case 1: url name is a subset of brand name e.g. abercrombie
+        for (let i = 0; i < brandNames.length; i++) {
+            let brandNameBySpace = brandNames[i].split(" ");
+            if (brandNameBySpace.includes(brandName)) {
+                brandName = brandNames[i];
+                validBrand = true;
+            }
+        }
+        // case 2: brand 
+    }
+    */
 }
 
 function urlBrandSpecial(url) {
