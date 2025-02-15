@@ -1,6 +1,6 @@
 {
     "name": "Clean Closet",
-    "description": "",
+    "description": "Extension that checks fashion sites against the Fashion Transparency Index database.",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
