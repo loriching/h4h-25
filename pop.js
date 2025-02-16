@@ -1,6 +1,6 @@
 // Inject brand name and score to HTML
 let scoreElement = document.getElementById('brand-score')
-scoreElement.innerHTML = 150 // GET SCORE HERE
+scoreElement.innerHTML = 50 // GET SCORE HERE
 let nameElement = document.getElementById('brand-name')
 nameElement.innerHTML = "No Data on this Brand"
 
@@ -11,7 +11,7 @@ let diffScore = maxScore - brandScore;
 
 
 let scoreColor;
-if (brandScore >= 100){
+if (brandScore >= 100) {
   scoreColor = 'green'
 } else {
   scoreColor = 'red'
