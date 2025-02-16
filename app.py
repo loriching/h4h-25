@@ -44,23 +44,29 @@ def parse(text):
     # Issues: s.oliver, dr. martens, ito-yokado (note it's Not an issue with the hyphen because k-way, li-ning etc work)
     for word in text.split():
         cleaned.append(word.strip(".,:—;®™").lower())
-    print(cleaned[0])
 
-    for brand in fti.keys():
-        if brand in " ".join(cleaned):
-            score = fti[brand]
-            print("Found brand match:", brand)
-            print("Score:", score)
-            suggestions = suggestAlternatives(brand)
-            print("Suggestions:", suggestions)
-            return {
-                "statusCode": 200,
-                "body": json.dumps({
-                    "rating": score,
-                    "brand": brand.title(),
-                    "suggestions": suggestions[:3],
-                })
-            }
+    word_count = len(cleaned)
+    for n in range(1, word_count - 1):
+        for i in range(word_count - n - 1):
+            phrase = " ".join(cleaned[i:i + n])  # Create contiguous sequence
+            
+            if phrase in fti:
+                print(phrase)
+                brand = phrase
+                score = fti[brand]
+                print("Found brand match:", brand)
+                print("Score:", score)
+                suggestions = suggestAlternatives(brand)
+                print("Suggestions:", suggestions)
+                
+                return {
+                    "statusCode": 200,
+                    "body": json.dumps({
+                        "rating": score,
+                        "brand": brand.title(),
+                        "suggestions": suggestions[:3],
+                    })
+                }
 
     print("Brand not found")
     return {
