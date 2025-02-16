@@ -13,9 +13,9 @@ chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
         let suggestionElement3 = document.getElementById('suggestion3');
         scoreElement.innerHTML = data.rating;
         nameElement.innerHTML = data.brand;
-        suggestionElement1.innerHTML = data.suggestions[0].brand;
-        suggestionElement2.innerHTML = data.suggestions[1].brand;
-        suggestionElement3.innerHTML = data.suggestions[2].brand;
+        suggestionElement1.innerHTML = data.suggestions[0].name;
+        suggestionElement2.innerHTML = data.suggestions[1].name.;
+        suggestionElement3.innerHTML = data.suggestions[2].name;
 
     } else {
         console.log("No data found in storage.");
