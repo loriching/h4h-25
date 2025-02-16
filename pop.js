@@ -30,7 +30,7 @@ const ctx=document.getElementById('myDonut')
     }, 
     options: {
       cutout: "80%",
-      radius: 140
+      radius: 90
     }
 });
 

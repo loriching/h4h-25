@@ -1,8 +1,8 @@
 body {
     align-items: center;
     /* justify-content: flex-start; */
-    width: 500px;
-    height: 550px;
+    width: 400px;
+    height: 500px;
     top: 20%;
     left: 20%;
 }
@@ -21,12 +21,8 @@ body {
 }
 
 #donut {
-    /* position: absolute;
-    width: 1200px;
-    height: 600px; */
-}
-
-#myDonut {
+    width: 200px;
+    height: auto;
     z-index: 10;
 }
 
