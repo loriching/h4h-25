@@ -40,14 +40,14 @@ body {
     z-index: 10;
 }
 
-/*
+
 #overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 3px solid gold;
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
     z-index: 100;
+    transform: translate(-110px, -90px);
+    
 }
-*/
