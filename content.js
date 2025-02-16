@@ -328,7 +328,7 @@ function titleBrand() {
 
     // currently - single-word case
     for (let i = 0; i < words.length; i++) {  // for each word in title
-        console.log("-checking word = " + word[i]);
+        console.log("-checking word = " + words[i]);
         for (const brand of brands.entries) {
             const name = brand.name;
             if (words[i] == name.toLowerCase()) {
@@ -337,7 +337,7 @@ function titleBrand() {
             }
         }
     }
-    
+
     return -1;
 }
 
