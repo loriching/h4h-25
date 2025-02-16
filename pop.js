@@ -1,7 +1,6 @@
-// score calculations
+// global score variables
 let maxScore = 207.5;
 let brandScore;
-let diffScore = maxScore - brandScore;
 
 chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
 // Check if the rating and brand are available
@@ -30,15 +29,16 @@ chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
   }
 });
 
-//0-40, 40-70,70-100
+// score & color calculations
+let diffScore = maxScore - brandScore;
+
+//0-40, 40-70, 70-100
 let scoreColor;
 if (brandScore >= 145.25) {
   scoreColor = 'green'
-} 
-else if(brandScore >=82.88){
+} else if(brandScore >=82.88){
   scoreColor = 'orange'
-}
-else {
+} else {
   scoreColor = 'red'
 }
 
