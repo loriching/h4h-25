@@ -1,8 +1,11 @@
-let scoreElement = document.getElementById('myScore')
-const totalElements = chrome.storage.local.get('data');
-console.log(totalElements);
+chrome.storage.local.get(["score", "brand", "suggestions"], (data) => {
+    let scoreElement = document.getElementById('myScore');
+    console.log(data.brand);
+    console.log(data.score);
+    console.log(data.suggestions);
 
-scoreElement.innerHTML = "12345";
+    scoreElement.innerHTML = data.brand;
+});
 
 const ctx = document.getElementById('myDonut')
   new Chart(ctx, {
