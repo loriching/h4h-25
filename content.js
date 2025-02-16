@@ -28,12 +28,28 @@ async function sendToApp(page){
         }
 
         const data = await response.json();
-        console.log("Response from Flask app:", data);
+        const responseBody = typeof data.body === "string" ? JSON.parse(data.body) : data.body;
+        const rating = responseBody.rating;
+        chrome.storage.local.set({ rating: rating }, () => {
+            console.log("Rating stored:", rating);
+        });
+
+        const brand = responseBody.brand;
+        chrome.storage.local.set({ brand: brand }, () => {
+            console.log("Brand stored:", brand);
+        });
+
+        const suggestions = responseBody.suggestions;
+        chrome.storage.local.set({ suggestions: suggestions }, () => {
+            console.log("Suggestions stored:", suggestions);
+        });
+    
+
         return data;
 
     } catch (error) {
         console.error("Error sending request:", error);
     }
 }
-const title = document.title;
-sendToApp(title);
+
+sendToApp(document.title);
