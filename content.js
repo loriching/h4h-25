@@ -335,13 +335,14 @@ function titleBrand() {
         console.log("checking word: " + words[i]);
         for (const brand of brands.entries) {
             const name = brand.name;
-            console.log("removed specials, brand name = " + name);
+            console.log("removed specials, brand name = " + removeSpecials(name));
             if (removeSpecials(words[i]) == removeSpecials(name)) {
                 return brand.score;
             }
 
             let nameBySpace = name.split(" ");
             for(const nameSlice of nameBySpace){
+                console.log("checking slice w/ removed specials = " + removeSpecials(nameSlice));
                 if (word == removeSpecials(nameSlice)) {
                     console.log("——Match found! returning " + brand.score);
                     return brand.score;
