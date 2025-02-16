@@ -16,5 +16,8 @@
                 "<all_urls>"
             ]
         }
-    ]
+    ],
+    "content_security_policy": {
+    "sandbox": "sandbox allow-scripts; script-src 'unsafe-inline' https://cdn.jsdelivr.net"
+  }
 }
