@@ -34,20 +34,32 @@ body {
     font-weight: bold;
 }
 
+.results {
+    display: flex;
+}
+
 #donut {
     width: 200px;
-    height: auto;
-    z-index: 10;
+    height: 200px;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 1;
 }
 
 
 #overlay {
-    position: absolute;
-    width: 30px;
-    height: 50px;
+    width: 10%;
+    height: 20%;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 100;
-    transform: translate(-110px, -90px);
-    
+    transform: translate(-50%, -50%); */
+    z-index: 2;
+}
+
+
+#scoreText {
+    font-size: 24px;
 }

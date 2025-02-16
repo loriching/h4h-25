@@ -4,13 +4,14 @@ scoreElement.innerHTML = 150 // GET SCORE HERE
 let nameElement = document.getElementById('brand-name')
 nameElement.innerHTML = "No Data on this Brand"
 
+// Score calculations
 let maxScore = 207.5;
 let brandScore = document.getElementById('brand-score').innerHTML;
 let diffScore = maxScore - brandScore;
 
-let scoreColor;
 
-if (brandScore >= 0.6){
+let scoreColor;
+if (brandScore >= 100){
   scoreColor = 'green'
 } else {
   scoreColor = 'red'
