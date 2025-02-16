@@ -54,7 +54,6 @@ def linkparse(link):
     }
 
 def parse(text):
-    print(text)
     if not text:
         return {
             "statusCode": 400,
@@ -63,7 +62,7 @@ def parse(text):
 
     cleaned = []
     # Clean up page title (translator method didn't work)
-    # Issues: s.oliver, dr. martens, ito-yokado (note it's Not an issue with the hyphen because k-way, li-ning etc work)
+    # Issues: s.oliver, dr. martens
     for word in text.split():
         cleaned.append(word.strip(".,:—;®™").lower())
 
@@ -71,15 +70,14 @@ def parse(text):
     for n in range(1, word_count - 1):
         for i in range(word_count - n - 1):
             phrase = " ".join(cleaned[i:i + n])  # Create contiguous sequence
-            print(phrase)
             
             if phrase in fti:
-                print(phrase)
                 brand = phrase
                 score = fti[brand]
                 print("Found brand match:", brand)
                 print("Score:", score)
                 suggestions = suggestAlternatives(brand)
+                print(suggestions[:3])
                 
                 return {
                     "statusCode": 200,
