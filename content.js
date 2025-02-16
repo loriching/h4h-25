@@ -299,6 +299,7 @@ if (result == -1) {
 
 // FUNCTIONS - used to figure out brand name for various cases
 
+// returns score if matching brand found, otherwise -1
 function urlBrandDirect(url) {
     const urlByPeriod = url.split(".");
     const urlName = urlByPeriod[1];  // TODO IMPROVE THIS METHOD
@@ -308,13 +309,14 @@ function urlBrandDirect(url) {
     for (let i = 0; i < b.length; i++) {
         const name = b[i].name;
         if (urlName == name.toLowerCase()) {
-            return i;
+            return b[i].score;
         }
     }
 
     return -1;
 }
 
+// returns score if matching brand found, otherwise -1
 function titleBrand() {
     let title = document.title;
 
@@ -333,7 +335,7 @@ function titleBrand() {
             const name = brand.name;
             if (words[i] == name.toLowerCase()) {
                 console.log("title match found, returning " + i);
-                return i;
+                return brand.score;
             }
         }
     }
