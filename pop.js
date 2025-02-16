@@ -1,5 +1,5 @@
 let scoreElement = document.getElementById('brand-score')
-scoreElement.innerHTML = "12345";
+scoreElement.innerHTML = "12345"; // GET SCORE HERE
 
 // let transparencyScore = document.getElementById('scoreText');
 // transparencyScore.innerHTML = 0.8;

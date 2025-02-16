@@ -8,12 +8,6 @@ body {
     border: 3px solid red;
 }
 
-#donut {
-    position: absolute;
-    width: 1200px;
-    height: 600px;
-}
-
 .flex {
     display: flex;
 }
@@ -22,13 +16,15 @@ body {
     margin: 1rem;
 }
 
-.donut {
-    position:relative;
-    align-items: center;
-    top: 25%;
-    left: 25%;
-    border: 3px solid green;
-    z-index: 9;
+#title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#donut {
+    position: absolute;
+    width: 1200px;
+    height: 600px;
 }
 
 #myDonut {
