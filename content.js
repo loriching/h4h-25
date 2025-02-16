@@ -9,7 +9,7 @@
    {"body": { "rating": 83.25 } }
     the function below then fetches this response and deals with it. It can interpret it or send the data to other modules.
 */
-async function sendToApp(page){
+async function sendToApp(title, link){
     const url = "http://127.0.0.1:5000/lookup";
     const request = {
         method: "POST",
@@ -17,7 +17,8 @@ async function sendToApp(page){
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-            text: page 
+            title: title,
+            link: link 
         })
     };
     try {
@@ -52,4 +53,4 @@ async function sendToApp(page){
     }
 }
 
-sendToApp(document.title);
+sendToApp(document.title, document.URL);

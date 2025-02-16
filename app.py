@@ -3,7 +3,6 @@
 # Then just open a terminal and do python app.py
 # That will launch the server and start listening for POST requests from the Chrome extension
 
-
 from flask import Flask, request
 from flask_cors import CORS
 import string
@@ -32,7 +31,30 @@ def suggestAlternatives(brand):
 
     return suggestions
 
+def linkparse(link):
+    for brand in link.split("."):
+        if brand in fti:
+            score = fti[brand]
+            print("Found brand match:", brand)
+            print("Score:", score)
+            suggestions = suggestAlternatives(brand)
+                
+            return {
+                "statusCode": 200,
+                "body": json.dumps({
+                    "rating": score,
+                    "brand": brand.title(),
+                    "suggestions": suggestions[:3],
+                })
+            }
+    print("Brand not found")
+    return {
+        "statusCode": 400,
+        "body": json.dumps({"rating": -999})
+    }
+
 def parse(text):
+    print(text)
     if not text:
         return {
             "statusCode": 400,
@@ -49,6 +71,7 @@ def parse(text):
     for n in range(1, word_count - 1):
         for i in range(word_count - n - 1):
             phrase = " ".join(cleaned[i:i + n])  # Create contiguous sequence
+            print(phrase)
             
             if phrase in fti:
                 print(phrase)
@@ -57,7 +80,6 @@ def parse(text):
                 print("Found brand match:", brand)
                 print("Score:", score)
                 suggestions = suggestAlternatives(brand)
-                print("Suggestions:", suggestions)
                 
                 return {
                     "statusCode": 200,
@@ -77,7 +99,10 @@ def parse(text):
 @app.route('/lookup', methods = ["POST"])
 def lookup():
     data = request.get_json()
-    return parse(data.get("text", ""))
+    if parse(data.get("title", ""))["statusCode"] == 400:
+        return linkparse(data.get("link", ""))
+    else:
+        return parse(data.get("title", ""))
     
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
