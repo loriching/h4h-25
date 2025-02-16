@@ -1,4 +1,4 @@
-let scoreElement = document.getElementById('myScore')
+let scoreElement = document.getElementById('brand-score')
 scoreElement.innerHTML = "12345";
 
 let transparencyScore = 0.8;

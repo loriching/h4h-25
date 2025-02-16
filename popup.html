@@ -8,17 +8,41 @@
 
 </head>
 <body>
-  <h1>Transparency Score</h1>
-  
+  <div class="title-bar">
+    <div class="flex">
+      <img src="" class="logo">
+      <h1>Clean Closet</h1>
+    </div>
+    <div>
+      <p>Brand Transparency Ratings</p>
+    </div>
+  </div>
+  <div class="flex main-rating">
     <div class="donut">
-        <canvas id="myDonut"></canvas>
+      <canvas id="myDonut"></canvas>
     </div>
+    <div class="margin text-rating">
+      <h2 class="brand-name">No Data on this Brand</h2>
+      <h1 class="brand-score">##</h1>
+    </div>
+  </div>
+  <div class="margin suggestions">
+    <h2>Suggested Alternatives:</h2>
+    <div class="suggestion-container">
+      <div class="suggestion-1"></div>
+      <div class="suggestion-2"></div>
+      <div class="suggestion-3"></div>
+    </div>
+  </div>
+  
 
-    <div id="overlay">
-    
-    </div>
-    <p id="myScore"></p>
-    <script src="./chart.js"></script>
-    <script src="./pop.js"></script>
+
+  <div id="overlay">
+  
+  </div>
+
+  <script src="./chart.js"></script>
+  <script src="./pop.js"></script>
+
 </body>
 </html>

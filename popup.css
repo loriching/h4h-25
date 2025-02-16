@@ -5,6 +5,14 @@ body {
     height: 600px;
 }
 
+.flex {
+    display: flex;
+}
+
+.margin {
+    margin: 1rem;
+}
+
 .donut {
     position:relative;
     align-items: center;
@@ -12,5 +20,10 @@ body {
     height: 70%;
     margin-top: 10px; 
     border: 3px solid green;
+}
+
+#myDonut {
+    border: 1px solid black;
+    z-index: 10;
 }
 
