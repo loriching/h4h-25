@@ -16,6 +16,19 @@ fti = {}
 with open('fti.json', 'r') as f:
     fti = json.load(f)
 
+prices = {}
+with open("prices.json", 'r') as f:
+    prices = json.load(f)
+
+def suggestAlternatives(brand):
+    suggestions = []
+    price = prices[brand]
+    for alt in prices:
+        if prices[alt] == price:
+            if fti[alt] > fti[brand]:
+                suggestions.append(alt)
+    return suggestions
+
 def parse(text):
     if not text:
         return {
@@ -31,16 +44,20 @@ def parse(text):
         if brand in cleaned:
             score = fti[brand]
             print("Found brand match:", brand)
-            print(score)
+            print("Score:", score)
+            suggestions = suggestAlternatives(brand)
+            print("Suggestions:", suggestions)
             return {
                         "statusCode": 200,
-                        "body": json.dumps({
-                            "rating": score,
-                            "brand": brand.title()
-                            # Issue here: capitalizes every word
-                            # Possible solution: record the index of the row with this brand in it
-                            })
+                        "body": json.dumps(
+                            {
+                                "rating": score,
+                                "brand": brand.title(),
+                                "suggestions": suggestions[:3]
+                            }
+                        )
                    }
+
     print("Brand not found")
     return {
                 "statusCode": 400,
