@@ -1,5 +1,5 @@
 async function sendToApp(page){
-    const url = "https://mavfdwz3c8.execute-api.us-east-2.amazonaws.com/default/H4H25";
+    const url = "http://127.0.0.1:4999/lookup";
     const request = {
         method: "POST",
         headers: {
