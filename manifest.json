@@ -17,7 +17,5 @@
             ]
         }
     ],
-    "content_security_policy": {
-    "sandbox": "sandbox allow-scripts; script-src 'unsafe-inline' https://cdn.jsdelivr.net"
-  }
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net 'unsafe-inline'; object-src 'self'"
 }
