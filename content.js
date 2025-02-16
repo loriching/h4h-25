@@ -357,16 +357,17 @@ function titleBrand() {
 // removes special characters from a string
 // - ' : ® & |
 function removeSpecials(name) {
+    console.log("removeSpecials called on " + name);
     let trimmed = name;
     for (let i = 0; i < trimmed.length; i++) {
         switch (trimmed[i]) {
-            case '-':
-            case '@':
+            case "-":
+            case "@":
             case "'":
-            case '®':
-            case '&':
-            case '|':
-            case ' ':
+            case "®":
+            case "&":
+            case "|":
+            case " ":
                 trimmed.replace(trimmed[i],"");
                 break;
         }
