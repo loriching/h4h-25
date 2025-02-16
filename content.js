@@ -337,13 +337,14 @@ function titleBrand() {
         for (const brand of brands.entries) {
             const name = brand.name;
             removeSpecials(name);
+            console.log("removed specials, name = " + name);
             if (word == name.toLowerCase()) {
                 return brand.score;
             }
 
             let nameBySpace = name.split(" ");
             for(const nameSlice of nameBySpace){
-                if(word == removeSpecials(nameSlice)) {
+                if (word == removeSpecials(nameSlice)) {
                     console.log("——Match found! returning " + brand.score);
                     return brand.score;
                 }
