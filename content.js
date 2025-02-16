@@ -292,13 +292,16 @@ let url = window.location.href;  // get url
 
 // Call functions
 let result = urlBrandDirect(url);
+console.log("urlBrandDirect returned " + result);
 if (result == -1) {
-    result = titleTag();
+    result = titleBrand();
+    console.log("titleBrand returned " + result);
 }
 
 
 // FUNCTIONS - used to figure out brand name for various cases
 
+// returns score if matching brand found, otherwise -1
 function urlBrandDirect(url) {
     const urlByPeriod = url.split(".");
     const urlName = urlByPeriod[1];  // TODO IMPROVE THIS METHOD
@@ -308,36 +311,35 @@ function urlBrandDirect(url) {
     for (let i = 0; i < b.length; i++) {
         const name = b[i].name;
         if (urlName == name.toLowerCase()) {
-            return i;
+            return b[i].score;
         }
     }
 
     return -1;
 }
 
-function titleTag() {
-    let title_tag = document.title;
+// returns score if matching brand found, otherwise -1
+function titleBrand() {
+    let title = document.title;
 
-    if (!title_tag) {
+    if (!title) {
         return -1;
     }
 
-    title_tag = title_tag.toLowerCase();    // format our title tag
-    console.log("titleTag = " + title_tag);
-    let words = title_tag.split(" ");  // all words in title tag
+    title = title.toLowerCase();    // format our title tag
+    console.log("title = " + title);
+    let words = title.split(" ");  // all words in title tag
 
     // currently - single-word case
-
-    for (const [i, word] of brands.entries.entries()) {  // for each word in title
-        console.log("-checking word = " + word);
-        for (const brand of brands.entries) {  // for each brand
+    for (let i = 0; i < words.length; i++) {  // for each word in title
+        for (const brand of brands.entries) {
             const name = brand.name;
-            if (word == name.toLowerCase()) {
-                console.log("titleTag match found, returning " + i);
-                return i;
+            if (words[i] == name.toLowerCase()) {
+                return brand.score;
             }
         }
     }
+
     return -1;
 }
 
