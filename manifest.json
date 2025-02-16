@@ -1,8 +1,10 @@
 {
-    "name": "Clean Closet",
-    "description": "Extension that checks fashion sites against the Fashion Transparency Index database.",
+    "name": "test",
+    "description": "test",
     "version": "1.0",
     "manifest_version": 3,
+    "permissions": ["scripting"],
+    "host_permissions": ["http://127.0.0.1:4999/*"],
     "action": {
         "default_popup": "popup.html",
         "default_icon": "thumbnail.png"
@@ -17,6 +19,8 @@
     "content_scripts": [
         {
             "js": ["content.js"],
+            "matches": ["<all_urls>"],
+            "run_at" : "document_idle"
             "matches": [
                 "<all_urls>"
             ]
