@@ -1,3 +1,9 @@
+# INSTRUCTIONS FOR RUNNING THIS:
+# If you don't already have the libraries below installed, you'll have to do that
+# (pip install flask and flask-cors and maybe json idk)
+# Then just open a terminal and do python app.py
+# That will launch the server and start listening for POST requests from the Chrome extension
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import string
