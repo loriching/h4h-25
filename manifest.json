@@ -11,8 +11,6 @@
         {
             "js": ["content.js"],
             "matches": [
-                "https://developer.chrome.com/docs/extensions/*",
-                "https://developer.chrome.com/docs/webstore/*",
                 "<all_urls>"
             ]
         }
