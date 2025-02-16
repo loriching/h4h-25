@@ -3,18 +3,14 @@
     "description": "Extension that checks fashion sites against the Fashion Transparency Index database.",
     "version": "1.0",
     "manifest_version": 3,
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": "thumbnail.png"
-    },
     "permissions": [
         "scripting",
         "storage"
     ],
     "host_permissions": ["http://127.0.0.1:5000/*"],
-    "background": {
-        "service_worker": "background.js",
-        "type": "module"
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "thumbnail.png"
     },
     "content_scripts": [
         {
