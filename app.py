@@ -45,8 +45,9 @@ def parse(text):
     for word in text.split():
         cleaned.append(word.strip(".,:—;®™").lower())
     print(cleaned[0])
+
     for brand in fti.keys():
-        if brand in cleaned:
+        if brand in " ".join(cleaned):
             score = fti[brand]
             print("Found brand match:", brand)
             print("Score:", score)
