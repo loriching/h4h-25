@@ -14,7 +14,7 @@ chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
         scoreElement.innerHTML = data.rating;
         nameElement.innerHTML = data.brand;
         suggestionElement1.innerHTML = data.suggestions[0].name;
-        suggestionElement2.innerHTML = data.suggestions[1].name.;
+        suggestionElement2.innerHTML = data.suggestions[1].name;
         suggestionElement3.innerHTML = data.suggestions[2].name;
 
     } else {
