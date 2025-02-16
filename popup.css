@@ -48,7 +48,6 @@ body {
     z-index: 1;
 }
 
-
 #overlay {
     width: 10%;
     height: 20%;
@@ -59,14 +58,9 @@ body {
     z-index: 2;
 }
 
-
 #scoreText {
     font-size: 24px;
 }
-.suggestion-container{
-    font-size: 2em;
+.suggestion {
     font-style: italic;
-}
-h3{
-    font-size: 2.3em;
 }
