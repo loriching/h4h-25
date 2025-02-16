@@ -330,14 +330,12 @@ function titleTag() {
 
     // currently - single-word case
 
-    const b = brands.entries;
-
-    for (let i = 0; i < words.length; i++) {  // for each word in title
-        console.log("-checking word = " + words[i]);
+    for (const [i, word] of brands.entries.entries()) {  // for each word in title
+        console.log("-checking word = " + word);
         for (const brand of brands.entries) {  // for each brand
-            const name = brand[i].name;
+            const name = brand.name;
             console.log("-checking brand = " + name);
-            if (words[i] == name.toLowerCase()) {
+            if (word == name.toLowerCase()) {
                 console.log("titleTag match found, returning " + i);
                 return i;
             }
