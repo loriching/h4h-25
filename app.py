@@ -13,29 +13,31 @@ with open('fti.json', 'r') as f:
 def parse(text):
     if text == '':
         return {
-            'statusCode': 400,
-            'body': json.dumps({'message': 'Text is empty'})
+            "statusCode": 400,
+            "body": json.dumps({"message": "Text is empty"})
         }
 
-    # Clean up page title
-    # translator method didn't work
+    # Clean up page title (translator method didn't work)
+    # Issues: s.oliver, ito-yokado (note it's not an issue with the hyphen because k-way, li-ning etc work)
     cleaned = ""
     for word in text:
         cleaned += word.strip(".").strip(",").lower()
-        
+    
+    print("Cleaned webpage title:", cleaned)
+
     for brand in fti.keys():
         if brand in cleaned:
             score = fti[brand]
-            print(brand)
+            print("Found brand match:", brand)
             print(score)
             return {
-                'statusCode': 200,
-                'body': json.dumps({"rating": score})
-                }
+                        "statusCode": 200,
+                        "body": json.dumps({"rating": score})
+                   }
     print("Brand not found")
     return {
-                'statusCode': 200,
-                'body': json.dumps({"rating": -999})
+                "statusCode": 200,
+                "body": json.dumps({"rating": -999})
             }
 
 @app.route('/lookup', methods = ["POST"])
@@ -44,4 +46,4 @@ def lookup():
     return parse(data.get("text", ""))
     
 if __name__ == "__main__":
-    app.run(port=4999, debug = True)
+    app.run(port=5000, debug = True)
