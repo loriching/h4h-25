@@ -37,3 +37,10 @@ body {
     transform: translate(-110px, -90px);
     
 }
+.suggestion-container{
+    font-size: 2em;
+    font-style: italic;
+}
+h3{
+    font-size: 2.3em;
+}

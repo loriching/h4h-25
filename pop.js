@@ -25,11 +25,12 @@ const ctx=document.getElementById('myDonut')
       datasets: [{
         label: 'Transparency Index',
         data: [complementTScore, transparencyScore],
-        backgroundColor: ['gray', scoreColor]
+        backgroundColor: ['gray', scoreColor],
+        
       }]
     }, 
     options: {
-      cutout: "80%",
+      cutout: "70%",
       radius: 90
     }
 });
