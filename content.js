@@ -333,11 +333,10 @@ function titleBrand() {
     // currently - single-word case
     for (let i = 0; i < words.length; i++) {  // for each word in title
         console.log("checking word: " + words[i]);
-        let word = removeSpecials(words[i]);
         for (const brand of brands.entries) {
-            const name = removeSpecials(brand.name);
+            const name = brand.name;
             console.log("removed specials, brand name = " + name);
-            if (word == name.toLowerCase()) {
+            if (removeSpecials(words[i]) == removeSpecials(name)) {
                 return brand.score;
             }
 
