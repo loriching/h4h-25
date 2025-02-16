@@ -28,7 +28,7 @@ const ctx=document.getElementById('myDonut')
       }]
     }, 
     options: {
-      cutout: "80%",
+      cutout: "70%",
       radius: 90
     }
 });
