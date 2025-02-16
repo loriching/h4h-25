@@ -1,5 +1,5 @@
 async function sendToApp(page){
-    const url = "https://xh592nkd5m.execute-api.us-east-2.amazonaws.com";
+    const url = "https://mavfdwz3c8.execute-api.us-east-2.amazonaws.com/default/H4H25";
     const request = {
         method: "POST",
         headers: {

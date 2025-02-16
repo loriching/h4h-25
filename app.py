@@ -1,41 +1,44 @@
-import json
-import string
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from csv import DictReader
+import string
 
 fti = {}
 
+with open("fti.csv", mode = 'r', newline = '', encoding = 'utf-8-sig') as file:
+    reader = DictReader(file)
+    for row in reader:
+        brand = row["Brand Name"]
+        score = row["2023 FINAL SCORE"]
+        fti[brand] = score
+        fti[brand.lower()] = score
+        fti[brand.upper()] = score
+        fti[brand.title()] = score
+
+def lookupBrand(brand):
+    if brand in fti.keys():
+        return fti[brand]
+
+app = Flask(__name__)
+CORS(app)
+
 def parse(text):
-    if text == '':
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'message': 'Text is empty'})
-        }
-
     # Clean up page title
-    translator = str.maketrans('', '', ["," , "."])
-    text = text.translate(translator).lower()
-
+    text.strip(".").strip(",")
+    print(text)
+    # Not super efficient, but it works
     for brand in fti.keys():
         if brand in text:
             score = fti[brand]
             print(score)
             return jsonify({"rating": score})
     print("Brand not found")
-    return json.dumps({"rating": 0})
+    return jsonify({"rating": "0"})
 
-def lambda_handler(event, context):
-    global fti
+@app.route('/lookup', methods = ["POST"])
+def lookup():
+    data = request.get_json()
+    return parse(data.get("text", ""))
 
-    if fti == {}:
-        with open('fti.json', 'r') as f:
-            fti = json.load(f)
-            
-    if not event.get('body'):
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'message': 'Request body is missing'})
-        }
-
-    body = json.loads(event['body'])
-    text = body.get('text').strip()
-    return parse(text)
+if __name__ == "__main__":
+    app.run(port=4999, debug = True)
