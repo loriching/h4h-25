@@ -302,14 +302,12 @@ if (result == -1) {
 function urlBrandDirect(url) {
     const urlByPeriod = url.split(".");
     const urlName = urlByPeriod[1];  // TODO IMPROVE THIS METHOD
-    console.log("BrandDirect - urlName = " + urlName);
 
     const b = brands.entries;
     
     for (let i = 0; i < b.length; i++) {
         const name = b[i].name;
         if (urlName == name.toLowerCase()) {
-            console.log("URL match found, returning " + i);
             return i;
         }
     }
@@ -334,7 +332,6 @@ function titleTag() {
         console.log("-checking word = " + word);
         for (const brand of brands.entries) {  // for each brand
             const name = brand.name;
-            console.log("-checking brand = " + name);
             if (word == name.toLowerCase()) {
                 console.log("titleTag match found, returning " + i);
                 return i;
