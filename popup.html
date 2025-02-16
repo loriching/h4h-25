@@ -8,11 +8,42 @@
 
 </head>
 <body>
-  <h1>Sustainability Score</h1>
-    <p id="myScore"></p>
-    <div class="donut">
-        <canvas id="myDonut"></canvas>
+  <div class="title-bar padding">
+    <div class="flex center">
+      <img src="" class="logo">
+      <div id="title">Clean Closet</div>
     </div>
+    <div class="center">
+      <p><em>Brand Transparency Ratings</em></p>
+    </div>
+  </div>
+  <div class="results">
+    <!-- <div id="overlay">
+      <div id="scoreText">80</div>
+    </div> -->
+    <div id="donut">
+      <canvas id="myDonut"></canvas>
+    </div>
+    <div class="margin results-text">
+      <h1 id="brand-score"></h1>
+      <h2 id="brand-name">No Data on this Brand</h2>
+    </div>
+  </div>
+  <div class="margin suggestions">
+    <h3>Suggested Alternatives:</h3>
+    <div class="suggestion-container">
+      <div class="suggestion">suggestion 1</div>
+      <div class="suggestion">suggestion 2</div>
+      <div class="suggestion">suggestion 3</div>
+    </div>
+  </div>
+
+  
+
+    
+    
+    <p id="myScore"></p>
+    
     <script src="./chart.js"></script>
     <script src="./pop.js"></script>
 </body>
