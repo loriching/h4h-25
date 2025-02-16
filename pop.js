@@ -1,5 +1,8 @@
+// Inject brand name and score to HTML
 let scoreElement = document.getElementById('brand-score')
-scoreElement.innerHTML = "12345"; // GET SCORE HERE
+scoreElement.innerHTML = "80" // GET SCORE HERE
+let nameElement = document.getElementById('brand-name')
+nameElement.innerHTML = "Brand Name"
 
 // let transparencyScore = document.getElementById('scoreText');
 // transparencyScore.innerHTML = 0.8;
