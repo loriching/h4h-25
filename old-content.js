@@ -363,8 +363,8 @@ function removeSpecials(name) {
             case "&":
             case "|":
             case " ":
-                console.log("found special, removing " + char);
                 name = name.replace(char,"");
+                console.log("found special, removed " + char + ", name now " + name);
                 break;
         }
     }
