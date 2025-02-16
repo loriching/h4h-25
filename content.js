@@ -329,19 +329,17 @@ function urlBrandDirect(url) {
 }
 
 function titleTag() {
-    let title_tag = document.querySelector("title");
+    let title_tag = document.title;
 
     if (!title_tag) {
         return -1;
     }
 
-    title_tag = title_tag.innerHTML;
     title_tag = title_tag.toLowerCase();    // format our title tag
     console.log("titleTag = " + title_tag);
     let words = title_tag.split(" ");  // all words in title tag
 
     // currently - single-word case
-
 
     const b = brands.entries;
 
