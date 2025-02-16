@@ -4,7 +4,7 @@
 # That will launch the server and start listening for POST requests from the Chrome extension
 
 
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from flask_cors import CORS
 import string
 import json
