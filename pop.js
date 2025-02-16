@@ -4,7 +4,7 @@ let brandScore = 0;
 
 chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
 // Check if the rating and brand are available
-  if (data.rating && data.brand && data.suggestions) {
+  if (data.rating && data.brand && data.suggestions && data.rating!=-999) {
       console.log("Stored Rating:", data.rating);
       console.log("Stored Brand:", data.brand);
       console.log("Stored Suggestions:", data.suggestions);
