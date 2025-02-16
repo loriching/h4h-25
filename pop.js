@@ -1,6 +1,8 @@
 let scoreElement = document.getElementById('myScore')
 scoreElement.innerHTML = "12345";
 
+// let transparencyScore = document.getElementById('scoreText');
+// transparencyScore.innerHTML = 0.8;
 let transparencyScore = 0.8;
 let complementTScore = 1 - transparencyScore;
 
@@ -18,10 +20,9 @@ const ctx=document.getElementById('myDonut')
     type: 'doughnut',
     data: {
       datasets: [{
-        label: 'Transperancy Index',
+        label: 'Transparency Index',
         data: [complementTScore, transparencyScore],
         backgroundColor: ['gray', scoreColor]
-        
       }]
     }, 
     options: {
@@ -29,3 +30,4 @@ const ctx=document.getElementById('myDonut')
       radius: 140
     }
 });
+

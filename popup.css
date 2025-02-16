@@ -1,16 +1,31 @@
 body {
     align-items: center;
     /* justify-content: flex-start; */
-    width: 1200px;
-    height: 600px;
+    width: 750px;
+    height: 550px;
+    top: 20%;
+    left: 20%;
+    border: 3px solid red;
 }
 
-.donut {
-    position:relative;
+#donut {
+    position: absolute;
     align-items: center;
-    width: 50%;
-    height: 70%;
-    margin-top: 10px; 
+    top: 25%;
+    left: 25%;
     border: 3px solid green;
+    z-index: 9;
 }
 
+#myDonut {
+    z-index: 10;
+    border: 3px solid pink;
+}
+
+#overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 3px solid gold;
+    z-index: 100;
+}
