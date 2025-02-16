@@ -293,7 +293,7 @@ let url = window.location.href;  // get url
 // Call functions
 let result = urlBrandDirect(url);
 if (result == -1) {
-    result = titleTag();
+    result = titleBrand();
 }
 
 
@@ -323,7 +323,7 @@ function titleBrand() {
     }
 
     title = title.toLowerCase();    // format our title tag
-    console.log("titleTag = " + title);
+    console.log("title = " + title);
     let words = title.split(" ");  // all words in title tag
 
     // currently - single-word case
@@ -332,7 +332,7 @@ function titleBrand() {
         for (const brand of brands.entries) {
             const name = brand.name;
             if (words[i] == name.toLowerCase()) {
-                console.log("titleTag match found, returning " + i);
+                console.log("title match found, returning " + i);
                 return i;
             }
         }
