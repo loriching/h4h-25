@@ -292,8 +292,10 @@ let url = window.location.href;  // get url
 
 // Call functions
 let result = urlBrandDirect(url);
+console.log("urlBrandDirect returned " + result);
 if (result == -1) {
     result = titleBrand();
+    console.log("titleBrand returned " + result);
 }
 
 
@@ -330,11 +332,9 @@ function titleBrand() {
 
     // currently - single-word case
     for (let i = 0; i < words.length; i++) {  // for each word in title
-        console.log("-checking word = " + words[i]);
         for (const brand of brands.entries) {
             const name = brand.name;
             if (words[i] == name.toLowerCase()) {
-                console.log("title match found, returning " + i);
                 return brand.score;
             }
         }
