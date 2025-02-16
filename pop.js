@@ -17,16 +17,17 @@ chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
       let suggestionElement3 = document.getElementById('suggestion3');
       scoreElement.innerHTML = data.rating;
       brandScore = data.rating;
-      console.log("updated brandScore var to " + brandScore);
-      console.log(typeof(brandScore));
       nameElement.innerHTML = data.brand;
-      suggestionElement1.innerHTML = data.suggestions[0];
-      suggestionElement2.innerHTML = data.suggestions[1];
-      suggestionElement3.innerHTML = data.suggestions[2];
+      if (data.suggestions.length >= 1) {
+        suggestionElement1.innerHTML = data.suggestions[0];
+      } else if (data.suggestions.length >= 2) {
+        suggestionElement2.innerHTML = data.suggestions[1];
+      } else if (data.suggestions.length >= 3) {
+        suggestionElement3.innerHTML = data.suggestions[2];
+      }
 
       // score & color calculations
       let diffScore = maxScore - brandScore;
-      console.log("diffScore calculated to " + diffScore);
 
       //0-40, 40-70, 70-100
       let scoreColor;
