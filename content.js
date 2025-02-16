@@ -337,6 +337,12 @@ function titleBrand() {
             if (words[i] == name.toLowerCase()) {
                 return brand.score;
             }
+            let nameBySpace = name.split(" ");
+            for(const nameSlice of nameBySpace){
+                if(words[i] == nameSlice){
+                    return brand.score;
+                }
+            }
         }
     }
 
