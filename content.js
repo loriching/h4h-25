@@ -386,12 +386,14 @@ Approach 2 (url bad, use title tag):American Eagle,
 e.g Bananana Republic has www.
 */
 
-let result = urlBrandDirect(url);
-if (result === -1) {
-    result = titleBrand();
+let index = urlBrandDirect(url);
+if (index === -1) {
+    index = titleBrand();
 }
 
 chrome.runtime.sendMessage({
-    data: result
+    name: (index !== -1) ? brands.entries[index].name : null,
+    score: (index !== -1) ? brands.entries[index].score : null,
+    suggestions: (index !== -1) ? brands.suggest(brands.entries[index]) : null,
 });
 

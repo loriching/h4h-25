@@ -1,6 +1,8 @@
 let scoreElement = document.getElementById('myScore')
-const totalElements = chrome.storage.local.get('data');
-console.log(totalElements);
+const brand = chrome.storage.local.get("name");
+const score = chrome.storage.local.get("score");
+const suggestions = chrome.storage.local.get("suggestions");
+console.log(brand, score, suggestions);
 
 scoreElement.innerHTML = "12345";
 
