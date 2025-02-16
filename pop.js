@@ -1,10 +1,19 @@
-let scoreElement = document.getElementById('myScore')
-const brand = chrome.storage.local.get("name");
-const score = chrome.storage.local.get("score");
-const suggestions = chrome.storage.local.get("suggestions");
-console.log(brand, score, suggestions);
+chrome.storage.local.get(["rating", "brand"], (data) => {
+    let scoreElement = document.getElementById('myScore');
+    // Check if the rating and brand are available
+    if (data.rating && data.brand) {
+        console.log("Stored Rating:", data.rating);
+        console.log("Stored Brand:", data.brand);
 
-scoreElement.innerHTML = "12345";
+        scoreElement.innerHTML = data.brand;
+
+        // Display the stored data in the popup
+        document.getElementById("ratingDisplay").textContent = `Rating: ${data.rating}`;
+        document.getElementById("brandDisplay").textContent = `Brand: ${data.brand}`;
+    } else {
+        console.log("No data found in storage.");
+    }
+});
 
 const ctx = document.getElementById('myDonut')
   new Chart(ctx, {
@@ -18,4 +27,3 @@ const ctx = document.getElementById('myDonut')
       }]
     }
   });
-
