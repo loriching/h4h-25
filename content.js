@@ -335,8 +335,7 @@ function titleBrand() {
         console.log("checking word: " + words[i]);
         let word = removeSpecials(words[i]);
         for (const brand of brands.entries) {
-            const name = brand.name;
-            removeSpecials(name);
+            const name = removeSpecials(brand.name);
             console.log("removed specials, brand name = " + name);
             if (word == name.toLowerCase()) {
                 return brand.score;
@@ -358,8 +357,9 @@ function titleBrand() {
 // removes special characters from a string
 // - ' : ® & |
 function removeSpecials(name) {
-    for (let i = 0; i < name.length; i++) {
-        switch (name[i]) {
+    let trimmed = name;
+    for (let i = 0; i < trimmed.length; i++) {
+        switch (trimmed[i]) {
             case '-':
             case '@':
             case "'":
@@ -367,10 +367,11 @@ function removeSpecials(name) {
             case '&':
             case '|':
             case ' ':
-                name.replace(name[i],"");
+                trimmed.replace(trimmed[i],"");
                 break;
         }
     }
+    return trimmed;
 }
 
 /*
