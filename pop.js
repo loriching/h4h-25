@@ -8,9 +8,6 @@ chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
 
         scoreElement.innerHTML = data.brand;
 
-        // Display the stored data in the popup
-        document.getElementById("ratingDisplay").textContent = `Rating: ${data.rating}`;
-        document.getElementById("brandDisplay").textContent = `Brand: ${data.brand}`;
     } else {
         console.log("No data found in storage.");
     }
