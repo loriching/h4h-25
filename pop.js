@@ -1,23 +1,28 @@
 chrome.storage.local.get(["rating", "brand", "suggestions"], (data) => {
-    let scoreElement = document.getElementById('myScore');
     // Check if the rating and brand are available
     if (data.rating && data.brand && data.suggestions) {
         console.log("Stored Rating:", data.rating);
         console.log("Stored Brand:", data.brand);
         console.log("Stored Suggestions:", data.suggestions);
 
-        scoreElement.innerHTML = data.brand;
+        // inject into HTML
+        let scoreElement = document.getElementById('brand-score');
+        let nameElement = document.getElementById('brand-name');
+        let suggestionElement1 = document.getElementById('suggestion1');
+        let suggestionElement2 = document.getElementById('suggestion2');
+        let suggestionElement3 = document.getElementById('suggestion3');
+        scoreElement.innerHTML = data.rating;
+        nameElement.innerHTML = data.brand;
+        suggestionElement1.innerHTML = data.suggestions[0].brand;
+        suggestionElement2.innerHTML = data.suggestions[1].brand;
+        suggestionElement3.innerHTML = data.suggestions[2].brand;
 
     } else {
         console.log("No data found in storage.");
+        let errorMsgElement = document.getElementById("error-msg");
+        errorMsgElement.setAttribute("style", "visibility: visible");
     }
 });
-
-// Inject brand name and score to HTML
-let scoreElement = document.getElementById('brand-score')
-scoreElement.innerHTML = 50 // GET SCORE HERE
-let nameElement = document.getElementById('brand-name')
-nameElement.innerHTML = "No Data on this Brand"
 
 // Score calculations
 let maxScore = 207.5;
