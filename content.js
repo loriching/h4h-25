@@ -38,6 +38,11 @@ async function sendToApp(page){
         chrome.storage.local.set({ brand: brand }, () => {
             console.log("Brand stored:", brand);
         });
+
+        const suggestions = responseBody.suggestions;
+        chrome.storage.local.set({ suggestions: suggestions }, () => {
+            console.log("Suggestions stored:", suggestions);
+        });
     
 
         return data;
