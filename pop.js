@@ -1,6 +1,10 @@
 let scoreElement = document.getElementById('myScore')
+const totalElements = chrome.storage.local.get('data');
+console.log(totalElements);
+
 scoreElement.innerHTML = "12345";
-const ctx=document.getElementById('myDonut')
+
+const ctx = document.getElementById('myDonut')
   new Chart(ctx, {
     type: 'doughnut',
     data: {
@@ -12,3 +16,4 @@ const ctx=document.getElementById('myDonut')
       }]
     }
   });
+

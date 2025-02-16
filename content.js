@@ -291,12 +291,6 @@ const brands = new Brands();
 let url = window.location.href;  // get url
 
 // Call functions
-let result = urlBrandDirect(url);
-console.log("urlBrandDirect returned " + result);
-if (result == -1) {
-    result = titleBrand();
-    console.log("titleBrand returned " + result);
-}
 
 
 // FUNCTIONS - used to figure out brand name for various cases
@@ -310,7 +304,7 @@ function urlBrandDirect(url) {
     
     for (let i = 0; i < b.length; i++) {
         const name = b[i].name;
-        if (urlName == name.toLowerCase()) {
+        if (urlName === name.toLowerCase()) {
             return b[i].score;
         }
     }
@@ -327,14 +321,13 @@ function titleBrand() {
     }
 
     title = title.toLowerCase();    // format our title tag
-    console.log("title = " + title);
     let words = title.split(" ");  // all words in title tag
 
     // currently - single-word case
     for (let i = 0; i < words.length; i++) {  // for each word in title
         for (const brand of brands.entries) {
             const name = brand.name;
-            if (words[i] == name.toLowerCase()) {
+            if (words[i] === name.toLowerCase()) {
                 return brand.score;
             }
         }
@@ -358,4 +351,13 @@ Approach 2 (url bad, use title tag):American Eagle,
 /*
 e.g Bananana Republic has www.
 */
-console.log("Running")
+
+let result = urlBrandDirect(url);
+if (result === -1) {
+    result = titleBrand();
+}
+
+chrome.runtime.sendMessage({
+    data: result
+});
+
