@@ -301,7 +301,7 @@ if (result == -1) {
 
 // FUNCTIONS - used to figure out brand name for various cases
 
-// returns score if matching brand found, otherwise -1
+// returns index of matching brand, otherwise -1
 function urlBrandDirect(url) {
     const urlByPeriod = url.split(".");
     const urlName = urlByPeriod[1];  // TODO IMPROVE THIS METHOD
@@ -311,14 +311,14 @@ function urlBrandDirect(url) {
     for (let i = 0; i < b.length; i++) {
         const name = b[i].name;
         if (urlName == name.toLowerCase()) {
-            return b[i].score;
+            return i;
         }
     }
 
     return -1;
 }
 
-// returns score if matching brand found, otherwise -1
+// returns index of matching brand, otherwise -1
 function titleBrand() {
     let title = document.title;
 
@@ -333,13 +333,14 @@ function titleBrand() {
     // currently - single-word case
     for (let i = 0; i < words.length; i++) {  // for each word in title
         console.log("checking word: " + words[i]);
-        for (const brand of brands.entries) {
-            const name = brand.name;
+        for (let j = 0; j < brands.entries; j++) {
+            const name = brands[j].name;
             console.log("removed specials, brand name = " + removeSpecials(name));
             if (removeSpecials(words[i]) == removeSpecials(name)) {
-                return brand.score;
+                return j;
             }
 
+            /*
             let nameBySpace = name.split(" ");
             for(const nameSlice of nameBySpace){
                 console.log("checking slice w/ removed specials = " + removeSpecials(nameSlice));
@@ -348,6 +349,10 @@ function titleBrand() {
                     return brand.score;
                 }
             }
+                */
+        }
+        for (const brand of brands.entries) {
+            
         }
     }
 
