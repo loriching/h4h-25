@@ -337,9 +337,12 @@ function titleBrand() {
             if (words[i] == name.toLowerCase()) {
                 return brand.score;
             }
+            console.log("no direct match found, trying slice method");
             let nameBySpace = name.split(" ");
             for(const nameSlice of nameBySpace){
+                console.log("checking slice:" + nameSlice);
                 if(words[i] == nameSlice){
+                    console.log("——Match found! returning " + brand.score);
                     return brand.score;
                 }
             }
