@@ -337,7 +337,7 @@ function titleBrand() {
         for (const brand of brands.entries) {
             const name = brand.name;
             removeSpecials(name);
-            console.log("removed specials, name = " + name);
+            console.log("removed specials, brand name = " + name);
             if (word == name.toLowerCase()) {
                 return brand.score;
             }
@@ -366,8 +366,9 @@ function removeSpecials(name) {
             case '®':
             case '&':
             case '|':
+            case ' ':
                 name.replace(name[i],"");
-
+                break;
         }
     }
 }
