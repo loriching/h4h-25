@@ -27,7 +27,10 @@ def suggestAlternatives(brand):
         if prices[alt] == price:
             if fti[alt] > fti[brand]:
                 suggestions.append(alt)
-    return suggestions
+    print(suggestions)
+    suggestions = sorted(suggestions, key=lambda x: fti[x], reverse=True)
+    print(suggestions)
+    return suggestions[:3]
 
 def parse(text):
     if not text:
