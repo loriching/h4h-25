@@ -358,8 +358,8 @@ function titleBrand() {
 // - ' : ® & |
 function removeSpecials(name) {
     console.log("removeSpecials called on " + name);
-    for (let i = 0; i < name.length; i++) {
-        switch (name[i]) {
+    for (let char of name) {
+        switch (char) {
             case "-":
             case "@":
             case "'":
@@ -367,7 +367,8 @@ function removeSpecials(name) {
             case "&":
             case "|":
             case " ":
-                name = name.replace(name[i],"");
+                console.log("found special, removing " + char);
+                name = name.replace(char,"");
                 break;
         }
     }
