@@ -27,10 +27,10 @@ def suggestAlternatives(brand):
         if prices[alt] == price:
             if fti[alt] > fti[brand]:
                 suggestions.append(alt)
-    print(suggestions)
+
     suggestions = sorted(suggestions, key=lambda x: fti[x], reverse=True)
-    print(suggestions)
-    return suggestions[:3]
+
+    return suggestions
 
 def parse(text):
     if not text:
@@ -53,21 +53,19 @@ def parse(text):
             suggestions = suggestAlternatives(brand)
             print("Suggestions:", suggestions)
             return {
-                        "statusCode": 200,
-                        "body": json.dumps(
-                            {
-                                "rating": score,
-                                "brand": brand.title(),
-                                "suggestions": suggestions[:3]
-                            }
-                        )
-                   }
+                "statusCode": 200,
+                "body": json.dumps({
+                    "rating": score,
+                    "brand": brand.title(),
+                    "suggestions": suggestions[:3],
+                })
+            }
 
     print("Brand not found")
     return {
-                "statusCode": 400,
-                "body": json.dumps({"rating": -999})
-            }
+        "statusCode": 400,
+        "body": json.dumps({"rating": -999})
+    }
 
 @app.route('/lookup', methods = ["POST"])
 def lookup():
@@ -75,4 +73,5 @@ def lookup():
     return parse(data.get("text", ""))
     
 if __name__ == "__main__":
-    app.run(port=5000, debug = True)
+    app.run(port=5000, debug=True)
+
