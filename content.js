@@ -292,23 +292,12 @@ let url = window.location.href;  // get url
 
 // Call functions
 let result = urlBrandDirect(url);
-if (result != -1) {
-    let score = getScore(getName(result));
-} else if (titleTag() != -1) {
+if (result == -1) {
     result = titleTag();
-    let score = getScore(getName(result));
 }
 
 
 // FUNCTIONS - used to figure out brand name for various cases
-
-function getName(index) {
-    return namesOriginal[index];
-}
-
-function getScore(brandName) {
-    // RYAN PLEASE WRITE THIS FUNCTION
-}
 
 function urlBrandDirect(url) {
     const urlByPeriod = url.split(".");
