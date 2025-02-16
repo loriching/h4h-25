@@ -333,15 +333,17 @@ function titleBrand() {
     // currently - single-word case
     for (let i = 0; i < words.length; i++) {  // for each word in title
         console.log("checking word: " + words[i]);
+        let word = removeSpecials(words[i]);
         for (const brand of brands.entries) {
             const name = brand.name;
-            if (words[i] == name.toLowerCase()) {
+            removeSpecials(name);
+            if (word == name.toLowerCase()) {
                 return brand.score;
             }
 
             let nameBySpace = name.split(" ");
             for(const nameSlice of nameBySpace){
-                if(words[i] == nameSlice){
+                if(word == removeSpecials(nameSlice)) {
                     console.log("——Match found! returning " + brand.score);
                     return brand.score;
                 }
@@ -350,6 +352,23 @@ function titleBrand() {
     }
 
     return -1;
+}
+
+// removes special characters from a string
+// - ' : ® & |
+function removeSpecials(name) {
+    for (let i = 0; i < name.length; i++) {
+        switch (name[i]) {
+            case '-':
+            case '@':
+            case "'":
+            case '®':
+            case '&':
+            case '|':
+                name.replace(name[i],"");
+
+        }
+    }
 }
 
 /*
