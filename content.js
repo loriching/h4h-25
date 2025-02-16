@@ -335,7 +335,7 @@ function titleTag() {
     for (let i = 0; i < words.length; i++) {  // for each word in title
         console.log("-checking word = " + words[i]);
         for (const brand of brands.entries) {  // for each brand
-            const name = b[i].name;
+            const name = brand[i].name;
             console.log("-checking brand = " + name);
             if (words[i] == name.toLowerCase()) {
                 console.log("titleTag match found, returning " + i);
@@ -343,7 +343,7 @@ function titleTag() {
             }
         }
     }
-
+    return -1;
 }
 
 /*
